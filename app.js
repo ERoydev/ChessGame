@@ -1,3 +1,4 @@
+
 const gameBoard = document.getElementById('gameboard');
 let playerTurn = 'w';
 
@@ -22,6 +23,8 @@ function createBoard() {
         square.classList.add('square')
         square.firstChild?.setAttribute('draggable', true)
         square.setAttribute('square-id', i)
+        square.setAttribute('row', Math.ceil((i + 0.8) / 8))
+
 
         // ADD POSSIBLE MOVES FOR EACH PIECE IN EACH CLASSLIST
         const squarePiece = square.children[0]
@@ -154,6 +157,7 @@ function dragDrop (e) {
                 
                 // To display turn on window
                 showTurn(playerTurn);
+                break;
             }
         }
     }
